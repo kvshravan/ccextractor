@@ -90,7 +90,8 @@ jobs:
     - name: install bazel
       run: sudo apt update && sudo apt install bazel
     - name: build
+      working-directory: ./
       run: bazel build //src:ccextractor --verbose_failures
-      working-directory: bazel-bin
     - name: Display version information
+      working-directory: ./bazel-bin
       run: ./bazel-bin/ccextractor --version
